@@ -34,8 +34,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         return webClient.post()
                 .uri("/save")
                 .bodyValue(employeeModel)
-                .retrieve().bodyToMono(EmployeeModel.class)
-                .timeout(Duration.ofMillis(10_000));
+                .retrieve().bodyToMono(EmployeeModel.class);
     }
 
     @Override
@@ -44,7 +43,6 @@ public class EmployeeServiceImpl implements EmployeeService {
         return webClient.put().uri("/update")
                 .bodyValue(employeeModel)
                 .retrieve().bodyToMono(EmployeeModel.class)
-                .timeout(Duration.ofMillis(10_000))
                 ;
     }
 
